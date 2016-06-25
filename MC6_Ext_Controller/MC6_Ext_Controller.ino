@@ -53,54 +53,63 @@ bool isLEDOn = false;
 
 void loop() {
 
+  // Preset G
   if (digitalRead(SW1) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(16, 0, chn);
     lastRead = millis();
   }
-
+  
+  // Preset H
   if (digitalRead(SW2) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(17, 0, chn);
     lastRead = millis();
   }
-
+  
+  // Preset I
   if (digitalRead(SW3) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(18, 0, chn);
     lastRead = millis();
   }
 
+  // Bank Down
   if (digitalRead(SW4) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(1, 0, chn);
     lastRead = millis();
   }
-
+  
+  // Preset J
   if (digitalRead(SW5) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(19, 0, chn);
     lastRead = millis();
   }
-
+  
+  // Preset K
   if (digitalRead(SW6) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(20, 0, chn);
     lastRead = millis();
   }
-
+  
+  // Preset L
   if (digitalRead(SW7) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(21, 0, chn);
     lastRead = millis();
   }
 
+  // Bank Up
   if (digitalRead(SW8) == LOW && millis() - lastRead > db) {
     turnLEDOn();
     MIDI.sendControlChange(0, 0, chn);
     lastRead = millis();
   }
 
+  // Turn led on for 500ms when any switch is pressed. Turn it off after 500ms.
   if (millis() - ledOn > 500 && isLEDOn == true) {
     isLEDOn = false;
     digitalWrite(LED1, LOW);
